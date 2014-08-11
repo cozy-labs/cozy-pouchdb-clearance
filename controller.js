@@ -6,7 +6,7 @@ clearance = require('./index');
 
 async = require('async');
 
-americano = require('americano-cozy');
+americano = require('americano-cozy-pouchdb');
 
 Contact = americano.getModel('Contact', {
   fn: String,
@@ -21,10 +21,10 @@ Contact = americano.getModel('Contact', {
 
 CozyAdapter = (function() {
   try {
-    return require('americano-cozy/node_modules/jugglingdb-cozy-adapter');
+    return require('americano-cozy-pouchdb/node_modules/jugglingdb-pouchdb-adapter');
   } catch (_error) {
     e = _error;
-    return require('jugglingdb-cozy-adapter');
+    return require('jugglingdb-pouchdb-adapter');
   }
 })();
 

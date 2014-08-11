@@ -1,7 +1,7 @@
 clearance = require './index'
 async = require 'async'
 
-americano = require 'americano-cozy'
+americano = require 'americano-cozy-pouchdb'
 Contact = americano.getModel 'Contact',
     fn            : String
     n             : String
@@ -9,8 +9,8 @@ Contact = americano.getModel 'Contact',
     datapoints    : (x) -> x
 
 # find the cozy adapter
-CozyAdapter = try require 'americano-cozy/node_modules/jugglingdb-cozy-adapter'
-catch e then require 'jugglingdb-cozy-adapter'
+CozyAdapter = try require 'americano-cozy-pouchdb/node_modules/jugglingdb-pouchdb-adapter'
+catch e then require 'jugglingdb-pouchdb-adapter'
 
 
 module.exports = (options) ->
