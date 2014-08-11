@@ -1,6 +1,6 @@
 {
   "name": "cozy-pouchdb-clearance",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "cozy-pouchdb-clearance provides clearance management for cozy standalone application",
   "main": "index.js",
   "scripts": {
