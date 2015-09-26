@@ -33,6 +33,6 @@
     "gulp": "3.5.5",
     "gulp-compile-js": "0.0.1",
     "gulp-uglify": "0.2.1",
-    "cozy-db-pouchdb": "0.1.1"
+    "cozy-db-pouchdb": "0.1.2"
   }
 }
