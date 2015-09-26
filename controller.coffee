@@ -1,7 +1,7 @@
 clearance = require './index'
 async = require 'async'
 
-americano = require 'cozy-db-pouchdb'
+cozydb = require 'cozy-db-pouchdb'
 
 
 class DataPoint extends cozydb.Model
@@ -10,15 +10,11 @@ class DataPoint extends cozydb.Model
         value: String
         type: String
 
-Contact = americano.getModel 'Contact',
+Contact = cozydb.getModel 'Contact',
     fn            : String
     n             : String
     _attachments  : Object
     datapoints    : [DataPoint]
-
-# find the cozy adapter
-CozyAdapter = try require 'americano-cozy-pouchdb/node_modules/jugglingdb-pouchdb-adapter'
-catch e then require 'jugglingdb-pouchdb-adapter'
 
 
 module.exports = (options) ->
@@ -49,7 +45,7 @@ module.exports = (options) ->
                     content: url
                     html: htmlContent
 
-                CozyAdapter.sendMailFromUser emailInfo, cb
+                cozydb.api.sendMailFromUser emailInfo, cb
 
     # change the whole clearance object
     out.change = (req, res, next) ->
