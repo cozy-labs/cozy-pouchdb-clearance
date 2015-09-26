@@ -1,6 +1,6 @@
 should = require 'should'
 clearance = require './index'
-americano = require 'americano-cozy'
+americano = require 'cozy-db-pouchdb'
 
 model = null
 rule = null

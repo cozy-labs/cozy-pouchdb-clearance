@@ -1,12 +1,20 @@
 clearance = require './index'
 async = require 'async'
 
-americano = require 'americano-cozy-pouchdb'
+americano = require 'cozy-db-pouchdb'
+
+
+class DataPoint extends cozydb.Model
+    @schema:
+        name: String
+        value: String
+        type: String
+
 Contact = americano.getModel 'Contact',
     fn            : String
     n             : String
-    _attachments  : (x) -> x
-    datapoints    : (x) -> x
+    _attachments  : Object
+    datapoints    : [DataPoint]
 
 # find the cozy adapter
 CozyAdapter = try require 'americano-cozy-pouchdb/node_modules/jugglingdb-pouchdb-adapter'
